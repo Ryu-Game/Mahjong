@@ -7,22 +7,70 @@
 //#include "Delete.h"
 #include "SceneMgr.h"
 
-Game mGame;
 /******************************
-* 変数
+* 構造体
 *******************************/
-int PlayerPoint[4];				/* 点数 */
+static class Game{
+private:
+public:
+	static char King;					/* 親 */
+	bool Gameflg;						/* ゲーム */
+}mGame;
+
+static class Player {
+public: 
+	static int Point[4];				/* 点数 */
+	static int Hai[4][14];				/* 手牌 */
+}mPlayer;
+
+static class Mounten {
+public:
+	/* 番号 */
+	const char ManzNumber = 0;
+	const char SouzNumber = 9;
+	const char PinzNumber = 18;
+	const char SufonNumber = 27;
+	const char SangenNumber = 31;
+	const char HaiNumber = 4;
+	const int AllTileNumber = 136;
+	/* 画像 */
+	static int ManzImage[9];
+	static int SouzImage[9];
+	static int PinzImage[9];
+	static int SufonImage[4];
+	static int SangenImage[3];
+	static int DoraImage[3];
+	static int BackImage[136];
+	static int AllTile[136];
+
+	static bool Reset;
+}mMounten;
+
+/******************************
+* 関数宣言
+*******************************/
+static void Mounten_Initialize();
+static void MountenDraw_Initialize();
+static void Mounten_Update();
+static void Mounten_Draw();
+
+static void Mounten_Shuffle();
 
 /******************************
 * 初期化処理
 *******************************/
 void Game_Initialize() {
+	mMounten.Reset = true;
+	MountenDraw_Initialize();			//牌画像格納処理
+
 	//mGame.King = GetRand(4);
 	mGame.King = 0;
+	
 	for (int i = 0; i < 4; i++) {
-		PlayerPoint[i] = 25000;
+		mPlayer.Point[i] = 25000;
 	}
-	mGame.StartGame = true;
+	
+	mGame.Gameflg = true;
 }
 
 /******************************
@@ -36,14 +84,14 @@ void Game_Initialize() {
 * 更新
 *******************************/
 void Game_Update() {
-	if (mGame.StartGame == true) {
+	if (mGame.Gameflg == false) {
+		MountenDraw_Initialize();			//牌画像格納処理
 		//mMounten.Mounten_Initialize();
 		//mPlayer.Player_Initialize();
-		//mDelete.Delete_Initialize();
 
-		mGame.StartGame = false;
+		mGame.Gameflg = true;
 	}
-	else if (mGame.StartGame == false) {
+	else if (mGame.Gameflg == true) {
 		//mMounten.Mounten_Update();
 		GetMousePoint(&iMouseX, &iMouseY);	//マウスカーソル
 		//mPlayer.Player_Update();
@@ -76,7 +124,6 @@ void Game_Draw() {
 			}
 		}
 	}*/
-	mGame.Cr = GetColor(0, 0, 0);
 	//mMounten.Mounten_Draw();
 	//mPlayer.Player_Draw();
 	//mDelete.Delete_Draw();
@@ -111,4 +158,73 @@ void Game_Draw() {
 	//default:
 	//	DrawFormatString(50, 0, mGame.Cr, "%d", mMounten.Rand, false);
 	//}
+}
+
+/******************************
+* 牌画像処理
+*******************************/
+void MountenDraw_Initialize() {
+	if (mMounten.Reset == true) {
+		/* 画像処理 */
+		LoadDivGraph("./images/Mans.png", 9, 9, 1, 66, 95, mMounten.ManzImage);
+		LoadDivGraph("./images/Souz.png", 9, 9, 1, 66, 95, mMounten.SouzImage);
+		LoadDivGraph("./images/Pinz.png", 9, 9, 1, 66, 96, mMounten.PinzImage);
+		LoadDivGraph("./images/ma-jan4_sufonpai.png", 4, 4, 1, 66, 96, mMounten.SufonImage);
+		LoadDivGraph("./images/ma-jan5_sangenpai.png", 3, 3, 1, 66, 96, mMounten.SangenImage);
+		LoadDivGraph("./images/ma-jan6_akahai.png", 3, 3, 1, 66, 96, mMounten.DoraImage);
+
+		/* 牌数値初期化処理 */
+		int num = 0;
+		for (int i = 0; i < 34; i++) {
+			for (int j = 0; j < 4; j++) {
+				num = i * 4 + i;
+				mMounten.AllTile[num] = i;
+			}
+		}
+
+		mMounten.Reset = false;
+
+	}
+
+	//山牌画像
+	for (int i = 0; i < 136; i++) {
+		mMounten.BackImage[i] = LoadGraph("./images/Mountain.png");
+	}
+
+	//ドラ画像初期化???
+	/*for (int i = 0; i < 4; i++) {
+		mDealing.DoraDraw[i] = -1;
+	}*/
+}
+
+
+/******************************
+* 山牌処理
+*******************************/
+void Mounten_Initialize() {
+	//山牌をシャッフル処理
+	Mounten_Shuffle();
+
+	//山牌を上段・下段に分割 ( 2段 * 68列 ( 34種類 * 2 ) )
+	for (int height = 0; height < 2; height++) {
+		for (int width = 0; width < 68; width++) {
+
+		}
+	}
+}
+
+
+
+/******************************
+* 山牌シャッフル
+*******************************/
+void Mounten_Shuffle() {
+	int tile;
+	int Tiles[136];
+	for (int num = mMounten.AllTileNumber; num > 0; num--) {
+		tile = GetRand(num - 1);
+		Tiles[num] = mMounten.BackImage[num];
+		mMounten.BackImage[num] = mMounten.BackImage[tile];
+		mMounten.BackImage[tile] = Tiles[num];
+	}
 }

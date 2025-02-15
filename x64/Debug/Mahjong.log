@@ -1,2 +1,19 @@
-﻿  SceneMgr.cpp
-  Mahjong.vcxproj -> D:\Production\VisualStudio\Mahjong\Mahjong\x64\Debug\Mahjong.exe
+﻿  Game.cpp
+D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(13,20): error C2011: 'Game': 'class' 型の再定義
+D:\Production\VisualStudio\Mahjong\Mahjong\INC\Game.h(3): message : 'Game' の宣言を確認してください
+D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(37,7): error C2027: 認識できない型 'Game' が使われています。
+D:\Production\VisualStudio\Mahjong\Mahjong\INC\Game.h(3): message : 'Game' の宣言を確認してください
+D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(41,7): error C2027: 認識できない型 'Game' が使われています。
+D:\Production\VisualStudio\Mahjong\Mahjong\INC\Game.h(3): message : 'Game' の宣言を確認してください
+D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(55,5): error C2027: 認識できない型 'Game' が使われています。
+D:\Production\VisualStudio\Mahjong\Mahjong\INC\Game.h(3): message : 'Game' の宣言を確認してください
+D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(60,8): error C2027: 認識できない型 'Game' が使われています。
+D:\Production\VisualStudio\Mahjong\Mahjong\INC\Game.h(3): message : 'Game' の宣言を確認してください
+D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(62,10): error C2027: 認識できない型 'Game' が使われています。
+D:\Production\VisualStudio\Mahjong\Mahjong\INC\Game.h(3): message : 'Game' の宣言を確認してください
+D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(95,7): error C2027: 認識できない型 'Game' が使われています。
+D:\Production\VisualStudio\Mahjong\Mahjong\INC\Game.h(3): message : 'Game' の宣言を確認してください
+  Input.cpp
+  Main.cpp
+  SceneMgr.cpp
+  コードを生成中...
