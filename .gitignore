@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+
+# 編集(要らないファイルコミット外)
+!.suo
+!.db
+!.ipch
+!.filters
+!.vcxproj
+!.log
+!.tlog
+!.pdb
