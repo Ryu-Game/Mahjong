@@ -74,18 +74,7 @@ void Mounten_Update() {
 
 void Mounten_Draw() {
 	if (mGame.Gameflg == true) {
-		//山牌を上段・下段に分割 ( 2段 * 68列 ( 34種類 * 2 ) )
-		/*for (int height = 0; height < 2; height++) {
-			for (int width = 0; width < 68; width++) {
-				if (height == 1) {
-					mMounten.UpDraw = 10;
-				}
-				switch (height) {
-				case 0:
-
-				}
-			}
-		}*/
+		
 	}
 }
 
