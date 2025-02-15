@@ -1,12 +1,11 @@
 #pragma once
 
-//class Game {
-//public:
-//	bool Wrong;	//òaóπ
-//	bool StartGame;
-//	int King;
-//	unsigned int Cr;
-//};
+class Game {
+public:
+	static char King;
+	bool Gameflg;
+	bool Reset;
+}mGame;
 /******************************
 * ç\ë¢ëÃ
 *******************************/

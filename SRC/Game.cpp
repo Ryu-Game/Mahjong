@@ -1,7 +1,7 @@
 #include "DxLib.h"
 //#include "Dealing.h"
 #include "Game.h"
-//#include "Mounten.h"
+#include "Mounten.h"
 //#include "Player.h"
 #include "Input.h"
 //#include "Delete.h"
@@ -10,66 +10,28 @@
 /******************************
 * \‘¢‘Ì
 *******************************/
-static class Game{
-private:
-public:
-	static char King;					/* e */
-	bool Gameflg;						/* ƒQ[ƒ€ */
-}mGame;
-
 static class Player {
 public: 
 	static int Point[4];				/* “_” */
 	static int Hai[4][14];				/* è”v */
 }mPlayer;
 
-static class Mounten {
-public:
-	/* ”Ô† */
-	const char ManzNumber = 0;
-	const char SouzNumber = 9;
-	const char PinzNumber = 18;
-	const char SufonNumber = 27;
-	const char SangenNumber = 31;
-	const char HaiNumber = 4;
-	const int AllTileNumber = 136;
-	/* ‰æ‘œ */
-	static int ManzImage[9];
-	static int SouzImage[9];
-	static int PinzImage[9];
-	static int SufonImage[4];
-	static int SangenImage[3];
-	static int DoraImage[3];
-	static int BackImage[136];
-	static int AllTile[136];
-
-	static bool Reset;
-}mMounten;
 
 /******************************
 * ŠÖ”éŒ¾
 *******************************/
-static void Mounten_Initialize();
-static void MountenDraw_Initialize();
-static void Mounten_Update();
-static void Mounten_Draw();
-
-static void Mounten_Shuffle();
 
 /******************************
 * ‰Šú‰»ˆ—
 *******************************/
 void Game_Initialize() {
-	mMounten.Reset = true;
-	MountenDraw_Initialize();			//”v‰æ‘œŠi”[ˆ—
-
 	//mGame.King = GetRand(4);
 	mGame.King = 0;
 	
 	for (int i = 0; i < 4; i++) {
 		mPlayer.Point[i] = 25000;
 	}
-	
+	Mounten_Initialize();			//”v‰æ‘œŠi”[ˆ—
 	mGame.Gameflg = true;
 }
 
@@ -84,9 +46,8 @@ void Game_Initialize() {
 * XV
 *******************************/
 void Game_Update() {
+	Mounten_Update();
 	if (mGame.Gameflg == false) {
-		MountenDraw_Initialize();			//”v‰æ‘œŠi”[ˆ—
-		//mMounten.Mounten_Initialize();
 		//mPlayer.Player_Initialize();
 
 		mGame.Gameflg = true;
@@ -158,73 +119,4 @@ void Game_Draw() {
 	//default:
 	//	DrawFormatString(50, 0, mGame.Cr, "%d", mMounten.Rand, false);
 	//}
-}
-
-/******************************
-* ”v‰æ‘œˆ—
-*******************************/
-void MountenDraw_Initialize() {
-	if (mMounten.Reset == true) {
-		/* ‰æ‘œˆ— */
-		LoadDivGraph("./images/Mans.png", 9, 9, 1, 66, 95, mMounten.ManzImage);
-		LoadDivGraph("./images/Souz.png", 9, 9, 1, 66, 95, mMounten.SouzImage);
-		LoadDivGraph("./images/Pinz.png", 9, 9, 1, 66, 96, mMounten.PinzImage);
-		LoadDivGraph("./images/ma-jan4_sufonpai.png", 4, 4, 1, 66, 96, mMounten.SufonImage);
-		LoadDivGraph("./images/ma-jan5_sangenpai.png", 3, 3, 1, 66, 96, mMounten.SangenImage);
-		LoadDivGraph("./images/ma-jan6_akahai.png", 3, 3, 1, 66, 96, mMounten.DoraImage);
-
-		/* ”v”’l‰Šú‰»ˆ— */
-		int num = 0;
-		for (int i = 0; i < 34; i++) {
-			for (int j = 0; j < 4; j++) {
-				num = i * 4 + i;
-				mMounten.AllTile[num] = i;
-			}
-		}
-
-		mMounten.Reset = false;
-
-	}
-
-	//R”v‰æ‘œ
-	for (int i = 0; i < 136; i++) {
-		mMounten.BackImage[i] = LoadGraph("./images/Mountain.png");
-	}
-
-	//ƒhƒ‰‰æ‘œ‰Šú‰»???
-	/*for (int i = 0; i < 4; i++) {
-		mDealing.DoraDraw[i] = -1;
-	}*/
-}
-
-
-/******************************
-* R”vˆ—
-*******************************/
-void Mounten_Initialize() {
-	//R”v‚ğƒVƒƒƒbƒtƒ‹ˆ—
-	Mounten_Shuffle();
-
-	//R”v‚ğã’iE‰º’i‚É•ªŠ„ ( 2’i * 68—ñ ( 34í—Ş * 2 ) )
-	for (int height = 0; height < 2; height++) {
-		for (int width = 0; width < 68; width++) {
-
-		}
-	}
-}
-
-
-
-/******************************
-* R”vƒVƒƒƒbƒtƒ‹
-*******************************/
-void Mounten_Shuffle() {
-	int tile;
-	int Tiles[136];
-	for (int num = mMounten.AllTileNumber; num > 0; num--) {
-		tile = GetRand(num - 1);
-		Tiles[num] = mMounten.BackImage[num];
-		mMounten.BackImage[num] = mMounten.BackImage[tile];
-		mMounten.BackImage[tile] = Tiles[num];
-	}
 }
