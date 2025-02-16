@@ -165,12 +165,14 @@
     <ClCompile Include="SRC\Input.cpp" />
     <ClCompile Include="SRC\Main.cpp" />
     <ClCompile Include="SRC\Mounten.cpp" />
+    <ClCompile Include="SRC\Player.cpp" />
     <ClCompile Include="SRC\SceneMgr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="INC\Game.h" />
     <ClInclude Include="INC\Input.h" />
     <ClInclude Include="INC\Mounten.h" />
+    <ClInclude Include="INC\Player.h" />
     <ClInclude Include="INC\SceneMgr.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

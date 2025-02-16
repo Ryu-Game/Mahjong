@@ -32,7 +32,7 @@ void Game_Initialize() {
 		mPlayer.Point[i] = 25000;
 	}
 	Mounten_Initialize();			//”v‰æ‘œŠi”[ˆ—
-	mGame.Gameflg = true;
+	mGame.Gameflg = false;
 }
 
 /******************************
@@ -46,10 +46,9 @@ void Game_Initialize() {
 * XV
 *******************************/
 void Game_Update() {
-	Mounten_Update();
 	if (mGame.Gameflg == false) {
 		//mPlayer.Player_Initialize();
-
+		Mounten_Update();
 		mGame.Gameflg = true;
 	}
 	else if (mGame.Gameflg == true) {
@@ -121,5 +120,4 @@ void Game_Draw() {
 	//	DrawFormatString(50, 0, mGame.Cr, "%d", mMounten.Rand, false);
 	//}
 
-	DrawBox(40,40, 40 + 40,  40 + 40, 0xff0000, false);
 }

@@ -45,7 +45,6 @@ public:
 	int DoraImage[3];
 	int BackImage[136];
 	int AllTile[136];
-
 	/* ‰æ‘œƒTƒCƒY */
 	const float DrawSize = 0.35f;
 }mMounten;
@@ -87,7 +86,7 @@ void Mounten_Update() {
 		for (int i = 0; i < 136; i++) {
 			mMounten.BackImage[i] = LoadGraph("./images/Mountain.png");
 		}
-		//Shuffle();
+		Shuffle();
 	}
 	else {
 		
@@ -96,7 +95,7 @@ void Mounten_Update() {
 
 void Mounten_Draw() {
 	for (int num = 0; num < 4; num++) {
-		for (int width = 0; width < 2; width++) {
+		for (int width = 1; width >= 0; width--) {
 			if (width == 0) mMounten.UpDraw = 0;
 			else mMounten.UpDraw = 10;
 			
@@ -135,12 +134,18 @@ void Mounten_Finalize() {
 void Shuffle() {
 	int rand;
 	int Tiles;
-	for (int num = mMounten.AllTileNumber; num > 0; num--) {
+	for (int num = mMounten.AllTileNumber - 1; num >= 0; num--) {
 		rand = GetRand(num);
 		Tiles = mMounten.BackImage[num];
 		mMounten.BackImage[num] = mMounten.BackImage[rand];
 		mMounten.BackImage[rand] = Tiles;
 	}
+	
+	////‡”Ô’Ê‚è‚É‚·‚é
+	//for (int num = 0; num < mMounten.AllTileNumber; num++) {
+	//	int Init = mMounten.AllTileNumber - 1;
+	//	mMounten.BackImage[num] = mMounten.BackImage[Init];
+	//}
 }
 
 
