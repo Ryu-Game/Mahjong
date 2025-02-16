@@ -1,11 +1,32 @@
 #include "DxLib.h"
 #include "Mounten.h"
 #include "Game.h"
+#include "SceneMgr.h"
+
+#define PI    3.14159265358979323846264
 
 static class Mounten {
 public:
 	bool Reset;
-	static char UpDraw;
+	/* 描画座標(設定でできるようにする) */
+	char UpDraw;
+	const int Size = 24;
+	const char IniWidth = 870;
+	const char IniHeight = 130;
+	const int Width[4]{
+		834,
+		410,/* mgr.SCREEN_WIDTH - mMounten.IniWidth, */
+		450,
+		870//mMounten.IniWidth
+	};
+	const int Height[4]{
+		590,/*mgr.SCREEN_HEIGHT - mMounten.IniHeight,*/
+		554,
+		130,//mMounten.IniHeight,
+		168
+	};
+
+	int Image;
 
 	/* 番号 */
 	const char ManzNumber = 0;
@@ -16,20 +37,23 @@ public:
 	const char HaiNumber = 4;
 	const int AllTileNumber = 136;
 	/* 画像 */
-	static int ManzImage[9];
-	static int SouzImage[9];
-	static int PinzImage[9];
-	static int SufonImage[4];
-	static int SangenImage[3];
-	static int DoraImage[3];
-	static int BackImage[136];
-	static int AllTile[136];
+	int ManzImage[9];
+	int SouzImage[9];
+	int PinzImage[9];
+	int SufonImage[4];
+	int SangenImage[3];
+	int DoraImage[3];
+	int BackImage[136];
+	int AllTile[136];
+
+	/* 画像サイズ */
+	const float DrawSize = 0.35f;
 }mMounten;
 
 
 static void Shuffle();
 
-void Mounten_Initialize() {	
+void Mounten_Initialize() {
 	if (mMounten.Reset == true) {
 		/* 画像処理 */
 		LoadDivGraph("./images/Mans.png", 9, 9, 1, 66, 95,mMounten.ManzImage);
@@ -47,7 +71,6 @@ void Mounten_Initialize() {
 				mMounten.AllTile[num] = i;
 			}
 		}
-		mMounten.UpDraw = 0;
 		mMounten.Reset = false;
 	}
 	
@@ -60,12 +83,11 @@ void Mounten_Initialize() {
 
 void Mounten_Update() {
 	if (mGame.Gameflg == false) {
-		mMounten.UpDraw = 0;
 		//山牌画像
 		for (int i = 0; i < 136; i++) {
 			mMounten.BackImage[i] = LoadGraph("./images/Mountain.png");
 		}
-		Shuffle();
+		//Shuffle();
 	}
 	else {
 		
@@ -73,8 +95,33 @@ void Mounten_Update() {
 }
 
 void Mounten_Draw() {
-	if (mGame.Gameflg == true) {
-		
+	for (int num = 0; num < 4; num++) {
+		for (int width = 0; width < 2; width++) {
+			if (width == 0) mMounten.UpDraw = 0;
+			else mMounten.UpDraw = 10;
+			
+			for (int tile = 0; tile < 17; tile++) {
+				mMounten.Image = tile * 2 + width + num * 34;
+
+				switch (num) {
+				case 0:
+					DrawRotaGraph(mMounten.Width[num] - (mMounten.Size * tile), mMounten.Height[num] - mMounten.UpDraw, mMounten.DrawSize, PI * 2, mMounten.BackImage[mMounten.Image], false);
+					break;
+					
+				case 1:
+					DrawRotaGraph(mMounten.Width[num] + mMounten.UpDraw, mMounten.Height[num] - (mMounten.Size * tile), mMounten.DrawSize, PI / 2, mMounten.BackImage[mMounten.Image], false);
+					break;
+
+				case 2:
+					DrawRotaGraph(mMounten.Width[num] + (mMounten.Size * tile), mMounten.Height[num] + mMounten.UpDraw, mMounten.DrawSize, -PI, mMounten.BackImage[mMounten.Image], false);
+					break;
+
+				case 3:
+					DrawRotaGraph(mMounten.Width[num] - mMounten.UpDraw, mMounten.Size * tile + mMounten.Height[num], mMounten.DrawSize, -(PI / 2), mMounten.BackImage[mMounten.Image], false);
+					break;
+				}
+			}
+		}
 	}
 }
 
@@ -86,13 +133,13 @@ void Mounten_Finalize() {
 * 山牌シャッフル
 *******************************/
 void Shuffle() {
-	int tile;
-	int Tiles[136];
+	int rand;
+	int Tiles;
 	for (int num = mMounten.AllTileNumber; num > 0; num--) {
-		tile = GetRand(num - 1);
-		Tiles[num] = mMounten.BackImage[num];
-		mMounten.BackImage[num] = mMounten.BackImage[tile];
-		mMounten.BackImage[tile] = Tiles[num];
+		rand = GetRand(num);
+		Tiles = mMounten.BackImage[num];
+		mMounten.BackImage[num] = mMounten.BackImage[rand];
+		mMounten.BackImage[rand] = Tiles;
 	}
 }
 
@@ -100,7 +147,3 @@ void Shuffle() {
 /******************************
 * 山牌処理
 *******************************/
-void Mounten_Initialize() {
-
-	
-}

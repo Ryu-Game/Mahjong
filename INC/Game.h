@@ -1,10 +1,9 @@
 #pragma once
 
-class Game {
+static class Game {
 public:
-	static char King;
+	char King;
 	bool Gameflg;
-	bool Reset;
 }mGame;
 /******************************
 * ç\ë¢ëÃ

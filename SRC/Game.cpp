@@ -12,8 +12,8 @@
 *******************************/
 static class Player {
 public: 
-	static int Point[4];				/* “_” */
-	static int Hai[4][14];				/* è”v */
+	int Point[4];				/* “_” */
+	int Hai[4][14];				/* è”v */
 }mPlayer;
 
 
@@ -74,6 +74,7 @@ void Game_Update() {
 * •`‰æ
 *******************************/
 void Game_Draw() {
+	Mounten_Draw();
 	//ƒOƒŠƒbƒhü
 	/*for (int i = 0; i < 32; i++) {
 		for (int j = 0; j < 18; j++) {
@@ -119,4 +120,6 @@ void Game_Draw() {
 	//default:
 	//	DrawFormatString(50, 0, mGame.Cr, "%d", mMounten.Rand, false);
 	//}
+
+	DrawBox(40,40, 40 + 40,  40 + 40, 0xff0000, false);
 }

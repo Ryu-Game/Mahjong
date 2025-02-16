@@ -1,31 +1,5 @@
-﻿  Game.cpp
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(137,6): error C2065: 'mMounten': 定義されていない識別子です。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(139,54): error C2065: 'mMounten': 定義されていない識別子です。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(139,72): error C2660: 'DxLib::LoadDivGraph': 関数に 6 個の引数を指定できません。
-C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2537,14): message : 'DxLib::LoadDivGraph' の宣言を確認してください
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(140,54): error C2065: 'mMounten': 定義されていない識別子です。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(140,72): error C2660: 'DxLib::LoadDivGraph': 関数に 6 個の引数を指定できません。
-C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2537,14): message : 'DxLib::LoadDivGraph' の宣言を確認してください
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(141,54): error C2065: 'mMounten': 定義されていない識別子です。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(141,72): error C2660: 'DxLib::LoadDivGraph': 関数に 6 個の引数を指定できません。
-C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2537,14): message : 'DxLib::LoadDivGraph' の宣言を確認してください
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(142,66): error C2065: 'mMounten': 定義されていない識別子です。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(142,85): error C2660: 'DxLib::LoadDivGraph': 関数に 6 個の引数を指定できません。
-C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2537,14): message : 'DxLib::LoadDivGraph' の宣言を確認してください
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(143,67): error C2065: 'mMounten': 定義されていない識別子です。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(143,87): error C2660: 'DxLib::LoadDivGraph': 関数に 6 個の引数を指定できません。
-C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2537,14): message : 'DxLib::LoadDivGraph' の宣言を確認してください
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(144,64): error C2065: 'mMounten': 定義されていない識別子です。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(144,82): error C2660: 'DxLib::LoadDivGraph': 関数に 6 個の引数を指定できません。
-C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2537,14): message : 'DxLib::LoadDivGraph' の宣言を確認してください
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(151,5): error C2065: 'mMounten': 定義されていない識別子です。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(155,3): error C2065: 'mMounten': 定義されていない識別子です。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(161,3): error C2065: 'mMounten': 定義されていない識別子です。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(194,17): error C2065: 'mMounten': 定義されていない識別子です。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(196,16): error C2065: 'mMounten': 定義されていない識別子です。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(197,3): error C2065: 'mMounten': 定義されていない識別子です。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(197,29): error C2065: 'mMounten': 定義されていない識別子です。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Game.cpp(198,3): error C2065: 'mMounten': 定義されていない識別子です。
-  Mounten.cpp
-  SceneMgr.cpp
-  コードを生成中...
+﻿  Mounten.cpp
+D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Mounten.cpp(14,22): warning C4305: '初期化中': 'int' から 'const char' へ切り詰めます。
+D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Mounten.cpp(14,24): warning C4309: '初期化中': 定数値が切り捨てられました。
+D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Mounten.cpp(15,25): warning C4309: '初期化中': 定数値が切り捨てられました。
+  Mahjong.vcxproj -> D:\Production\VisualStudio\Mahjong\Mahjong\x64\Debug\Mahjong.exe

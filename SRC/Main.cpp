@@ -17,6 +17,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	while (ClearDrawScreen() == 0 && ProcessMessage() == 0) {
 		InputKey();        //“ü—Í
 		SceneMgr_Update();
+
 		SceneMgr_Draw();
 
 		ScreenFlip();
