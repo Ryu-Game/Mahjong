@@ -1,4 +1,4 @@
-#include "DxLib.h"
+#include <DxLib.h>
 //#include "Dealing.h"
 #include "Game.h"
 #include "Mounten.h"
@@ -10,12 +10,6 @@
 /******************************
 * 構造体
 *******************************/
-static class Player {
-public: 
-	int Point[4];				/* 点数 */
-	int Hai[4][14];				/* 手牌 */
-}mPlayer;
-
 
 /******************************
 * 関数宣言
@@ -46,13 +40,12 @@ void Game_Initialize() {
 * 更新
 *******************************/
 void Game_Update() {
+	Mounten_Update();
 	if (mGame.Gameflg == false) {
 		//mPlayer.Player_Initialize();
-		Mounten_Update();
 		mGame.Gameflg = true;
 	}
 	else if (mGame.Gameflg == true) {
-		//mMounten.Mounten_Update();
 		GetMousePoint(&iMouseX, &iMouseY);	//マウスカーソル
 		//mPlayer.Player_Update();
 		//mDelete.Delete_Update();

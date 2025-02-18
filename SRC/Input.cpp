@@ -1,4 +1,4 @@
-#include "DxLib.h"
+#include <DxLib.h>
 //#include "Game.h"
 #include "Input.h"
 int iOldKey;	//‘O‰ñ‚Ì“ü—ÍƒL[

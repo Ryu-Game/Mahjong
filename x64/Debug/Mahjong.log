@@ -1,5 +1,14 @@
-﻿  Mounten.cpp
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Mounten.cpp(14,22): warning C4305: '初期化中': 'int' から 'const char' へ切り詰めます。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Mounten.cpp(14,24): warning C4309: '初期化中': 定数値が切り捨てられました。
-D:\Production\VisualStudio\Mahjong\Mahjong\SRC\Mounten.cpp(15,25): warning C4309: '初期化中': 定数値が切り捨てられました。
+﻿  Game.cpp
+D:\Production\VisualStudio\Mahjong\Mahjong\INC\Mounten.h(9,22): warning C4305: '初期化中': 'int' から 'const char' へ切り詰めます。
+D:\Production\VisualStudio\Mahjong\Mahjong\INC\Mounten.h(9,24): warning C4309: '初期化中': 定数値が切り捨てられました。
+D:\Production\VisualStudio\Mahjong\Mahjong\INC\Mounten.h(10,25): warning C4309: '初期化中': 定数値が切り捨てられました。
+  Input.cpp
+  Main.cpp
+  Mounten.cpp
+D:\Production\VisualStudio\Mahjong\Mahjong\INC\Mounten.h(9,22): warning C4305: '初期化中': 'int' から 'const char' へ切り詰めます。
+D:\Production\VisualStudio\Mahjong\Mahjong\INC\Mounten.h(9,24): warning C4309: '初期化中': 定数値が切り捨てられました。
+D:\Production\VisualStudio\Mahjong\Mahjong\INC\Mounten.h(10,25): warning C4309: '初期化中': 定数値が切り捨てられました。
+  Player.cpp
+  SceneMgr.cpp
+  コードを生成中...
   Mahjong.vcxproj -> D:\Production\VisualStudio\Mahjong\Mahjong\x64\Debug\Mahjong.exe
